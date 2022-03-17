@@ -1,16 +1,48 @@
 <mvc:View
-    controllerName="SAPUI5.sapdemo.controller.AppDemo"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
+controllerName="SAPUI5.sapdemo.controller.AppDemo"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true"
+xmlns="sap.m"
 >
-    <Shell id="shell">
-        <App id="app">
-            <pages>
-                <Page id="page" title="{i18n>title}">
-                    <content />
-                </Page>
-            </pages>
-        </App>
-    </Shell>
+<Shell id="shell">
+    <App id="app">
+        <pages>
+            <Page id="page" title="{i18n>title}">
+                <content >
+                    <Table id="ordersTable"
+                    items="{ordersModel>/orders}">
+            <columns>
+                <Column>
+                    <Text text="Order" />
+                </Column>
+                <Column>
+                    <Text text="CSN" />
+                </Column>
+                <Column>
+                    <Text text="Material" />
+                </Column>
+                <Column>
+                </Column>
+            </columns>
+
+        <items>
+            <ColumnListItem vAlign="Middle">
+            <cells>
+                <Text
+                    text="{ordersModel>order_no}" />
+                <Text
+                    text="{ordersModel>csn_no}" />
+                <Text
+                    text="{ordersModel>mat_no}" />
+                <Button icon="sap-icon://delete"
+                   press="deleteRow"/>
+            </cells>
+            </ColumnListItem>
+        </items>
+</Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</Shell>
 </mvc:View>
